@@ -1,12 +1,13 @@
-﻿using System;
-
-namespace SqImport
+﻿namespace SqImport
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var container = IoC.ObterContainer())
+            {
+                container.ObterInstancia<Sistema>().Executar();
+            }
         }
     }
 }
