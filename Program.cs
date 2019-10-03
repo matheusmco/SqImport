@@ -1,12 +1,21 @@
-﻿namespace SqImport
+﻿using System;
+
+namespace SqImport
 {
     class Program
     {
         static void Main(string[] args)
         {
-            using (var container = IoC.ObterContainer())
+            try
             {
-                container.ObterInstancia<Sistema>().Executar();
+                using (var container = IoC.ObterContainer())
+                {
+                    container.ObterInstancia<Sistema>().Executar();
+                }
+            }
+            catch (NotImplementedException)
+            {
+
             }
         }
     }
